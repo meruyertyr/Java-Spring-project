@@ -24,9 +24,7 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Estrutura da tabela `course`
---
+
 
 DROP TABLE IF EXISTS `course`;
 CREATE TABLE IF NOT EXISTS `course` (
@@ -35,9 +33,7 @@ CREATE TABLE IF NOT EXISTS `course` (
   PRIMARY KEY (`courseid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `course`
---
+
 
 INSERT INTO `course` (`courseid`, `coursename`) VALUES
 (1, 'Programming Logic'),
@@ -49,9 +45,7 @@ INSERT INTO `course` (`courseid`, `coursename`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Estrutura da tabela `student`
---
+
 
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE IF NOT EXISTS `student` (
@@ -63,9 +57,7 @@ CREATE TABLE IF NOT EXISTS `student` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `student`
---
+
 
 INSERT INTO `student` (`id`, `department`, `email`, `firstname`, `lastname`) VALUES
 (1, 'TI', 'john@mayer.com', 'John', 'Mayer'),
@@ -74,9 +66,7 @@ INSERT INTO `student` (`id`, `department`, `email`, `firstname`, `lastname`) VAL
 
 -- --------------------------------------------------------
 
---
--- Estrutura da tabela `student_course`
---
+
 
 DROP TABLE IF EXISTS `student_course`;
 CREATE TABLE IF NOT EXISTS `student_course` (
@@ -86,9 +76,7 @@ CREATE TABLE IF NOT EXISTS `student_course` (
   KEY `courseid` (`courseid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `student_course`
---
+
 
 INSERT INTO `student_course` (`id`, `courseid`) VALUES
 (1, 1),
@@ -101,9 +89,7 @@ INSERT INTO `student_course` (`id`, `courseid`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Estrutura da tabela `user`
---
+
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
@@ -115,21 +101,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   UNIQUE KEY `UK_sb8bbouer5wak8vyiiy4pf2bx` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `user`
---
+
 
 INSERT INTO `user` (`id`, `password`, `role`, `username`) VALUES
 (1, '$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6', 'USER', 'user'),
 (2, '$2a$08$bCCcGjB03eulCWt3CY0AZew2rVzXFyouUolL5dkL/pBgFkUH9O4J2', 'ADMIN', 'admin');
 
---
--- Constraints for dumped tables
---
 
---
--- Limitadores para a tabela `student_course`
---
+
+
 ALTER TABLE `student_course`
   ADD CONSTRAINT `student_course_ibfk_1` FOREIGN KEY (`courseid`) REFERENCES `course` (`courseid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `student_course_ibfk_2` FOREIGN KEY (`id`) REFERENCES `student` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
