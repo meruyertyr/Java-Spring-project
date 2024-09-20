@@ -2,8 +2,8 @@ package course.entity;
 
 import java.util.Set;
 
-import javax.persistence.*;
-import javax.validation.constraints.Size;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Course {
@@ -51,3 +51,4 @@ public class Course {
         this.students = students;
     }
 }
+
