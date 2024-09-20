@@ -12,7 +12,9 @@ public class CrudbootApplication {
     private static final Logger log = LoggerFactory.getLogger(CrudbootApplication.class);
 
     public static void main(String[] args) {
+        log.info("Starting CrudbootApplication...");
         SpringApplication.run(CrudbootApplication.class, args);
+        log.info("CrudbootApplication started successfully.");
     }
 
 }
