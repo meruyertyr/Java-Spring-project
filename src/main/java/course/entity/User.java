@@ -1,7 +1,13 @@
 package course.entity;
 
-import javax.validation.constraints.Size;
-import javax.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import jakarta.persistence.Transient;
+import jakarta.validation.constraints.Size;
+
 
 @Entity
 public class User {
@@ -30,20 +36,20 @@ public class User {
     }
 
     public User(String username, String password, String role) {
-        super();
         this.username = username;
         this.password = password;
         this.role = role;
     }
 
+    // Getters and Setters...
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
 
+    // Other getters and setters
     public String getUsername() {
         return username;
     }
@@ -76,4 +82,12 @@ public class User {
         this.role = role;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }
