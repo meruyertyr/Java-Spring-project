@@ -1,38 +1,25 @@
 package course;
 
-import org.junit.Test;
-import org.junit.runner.*;
-
-import static org.junit.Assert.*;
-
-import java.util.Optional;
-
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import java.util.Optional;
+import static org.junit.jupiter.api.Assertions.*;
 
 import course.entity.Student;
-import course.repository.StudentRepository;
 import course.entity.User;
+import course.repository.StudentRepository;
 import course.repository.UserRepository;
 
-@RunWith(SpringRunner.class)
+
 @DataJpaTest
 public class CrudbootApplicationTests {
 
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
     private StudentRepository studentRepository;
-
-    @Autowired
-    public void setStudentRepository(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
-    }
 
     @Test
     public void addUser() {
@@ -51,5 +38,4 @@ public class CrudbootApplicationTests {
         Optional<Student> findStudent = studentRepository.findById(student.getId());
         assertTrue(findStudent.isPresent());
     }
-
 }
