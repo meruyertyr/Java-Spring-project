@@ -9,5 +9,4 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 
     Student findByFirstName(String firstName);
     List<Student> findAllByOrderByFirstNameAsc();
-
 }
